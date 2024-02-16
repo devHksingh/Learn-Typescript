@@ -29,10 +29,15 @@ function App() {
     },
   ])
 
+  function handleAddTOCartClick(id:number){
+    console.log('clicked', id);
+    
+  }
+
   return (
     <>
       {
-        products.map(product => <Product product={product} key={product.id}/>)
+        products.map(product => <Product product={product} key={product.id} handleAddTOCartClick={handleAddTOCartClick}/>)
       }
     </>
   )

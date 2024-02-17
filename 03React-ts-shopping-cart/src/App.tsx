@@ -6,6 +6,7 @@ import { Home } from "./pages/Home"
 import { About } from "./pages/About"
 import { Store } from "./pages/Store"
 import {Navbar} from './components/Navbar'
+import { ShoppingCartProvider } from "./context/ShoppingCartContext"
 // import './App.css'
 
 
@@ -15,7 +16,7 @@ function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <>
+    <ShoppingCartProvider>
     <Navbar/>
     <Container className="mb-4">
       <Routes>
@@ -25,7 +26,7 @@ function App() {
         
       </Routes>
     </Container>
-    </>
+    </ShoppingCartProvider>
   )
 }
 

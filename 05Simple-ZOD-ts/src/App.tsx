@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { z } from 'zod'
+import { fromZodError } from 'zod-validation-error'
 import './App.css'
 
 function App() {
@@ -110,8 +111,23 @@ function App() {
   // console.log(UserSchema.shape);
   // console.log(UserSchema.shape.userrole);
   console.log(UserSchema.partial().parse(user));
+  const result =UserSchema.partial().parse(user);
 
+  if(!result.success){
+    console.log(fromZodError(result.error));
+    
+  }
+
+  // record type
+
+  const UserMap = z.record(z.string(),z.number())
   
+  const user1 ={
+    adssa:5,
+    qwe:8
+  }
+
+  console.log(UserMap.parse(user1));
   
 
   return (

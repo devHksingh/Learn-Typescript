@@ -515,3 +515,27 @@ app.get("/", (req, res) => {
 })
 
 */
+
+// Genric
+
+function identity<T>(arg:T):T{
+    return arg
+}
+
+let output1 = identity<string>("myString")
+let output2 = identity<number>(100)
+
+output1.toUpperCase()
+
+
+function getFirstElement<T>(arg:T[]):T{
+    return arg[0]
+}
+
+const op1= getFirstElement([1,22,44])
+const op2 = getFirstElement(["asd","asd1"])
+const op3 = getFirstElement([1,"asd1"])
+// const op4 = getFirstElement<number>([1,2,4,"asd1"]) //Type 'string' is not assignable to type 'number'
+
+// console.log(op3.toLowerCase()); //  type error : .toLowerCase() DOES NOT WORK ON NUMBER .it must be a string
+

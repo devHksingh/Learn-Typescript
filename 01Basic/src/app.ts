@@ -441,3 +441,77 @@ const auth:IAuth = {
 
 
 let num = 1
+
+// Enums
+
+type KeyInput = "up" |"down" | "left" | "right"
+
+function doSomething(keyPressed:KeyInput){
+    // doSomething
+}
+
+
+doSomething("up")
+doSomething("down")
+// doSomething("1")
+// doSomething("random")
+//...
+
+enum Direction{
+    up, //0
+    down, //1
+    right, //2
+    left //3
+}
+
+// How to changes this value
+enum Direction1{
+    up=1, //1
+    down, //2
+    right, //3
+    left //4
+}
+// it also change to string
+
+enum Direction2{
+    up= 'up', //up
+    down = 'down', //down
+    right = 'right', //right
+    left = 'left' // left
+}
+
+function doSomething2(keyPressed:Direction){
+    // doSomething
+    if(keyPressed === Direction.up){
+        // ....
+    }
+    //....
+}
+
+doSomething2(Direction.up)
+doSomething2(Direction.down)
+doSomething2(Direction.left)
+
+console.log(Direction.down);
+console.log(Direction.up);
+console.log(Direction.left);
+
+// common usecase in express 
+
+enum ResponseStatus {
+    Success =200,
+    NotFound =404,
+    Error = 500
+}
+
+/*
+const app = express()
+app.get("/", (req, res) => {
+    if (!req.query.userId) {
+			res.status(ResponseStatus.Error).json({})
+    }
+    // and so on...
+		res.status(ResponseStatus.Success).json({});
+})
+
+*/

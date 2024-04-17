@@ -268,3 +268,31 @@ const auth = {
     }
 };
 let num = 1;
+function doSomething(keyPressed) {
+    // doSomething
+}
+doSomething("up");
+doSomething("down");
+// doSomething("1")
+// doSomething("random")
+//...
+var Direction;
+(function (Direction) {
+    Direction[Direction["up"] = 0] = "up";
+    Direction[Direction["down"] = 1] = "down";
+    Direction[Direction["right"] = 2] = "right";
+    Direction[Direction["left"] = 3] = "left";
+})(Direction || (Direction = {}));
+function doSomething2(keyPressed) {
+    // doSomething
+    if (keyPressed === Direction.up) {
+        // ....
+    }
+    //....
+}
+doSomething2(Direction.up);
+doSomething2(Direction.down);
+doSomething2(Direction.left);
+console.log(Direction.down);
+console.log(Direction.up);
+console.log(Direction.left);
